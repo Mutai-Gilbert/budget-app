@@ -72,7 +72,6 @@ group :test do
   gem 'selenium-webdriver'
   gem 'webdrivers'
 end
-gem 'rubocop', '>= 1.0', '< 2.0'
 gem 'devise'
+gem 'rubocop', '>= 1.0', '< 2.0'
 gem 'slim' # or gem 'haml' for Haml, or gem 'erb' for ERB
-
