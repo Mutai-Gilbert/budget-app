@@ -7,7 +7,9 @@ class UsersController < ApplicationController
     @users = User.all
   end
 
-  def show; end
+  def show
+    @user = User.find(params[:id])
+   end
 
   def new
     @users = User.new
@@ -40,6 +42,7 @@ class UsersController < ApplicationController
   end
 
   def destroy
+    @user = User.find(params[:id])
     @user.destroy
 
     respond_to do |format|
