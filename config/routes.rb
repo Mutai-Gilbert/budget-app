@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
   resources :login_signups
   devise_for :users
@@ -7,7 +9,7 @@ Rails.application.routes.draw do
   end
   resources :group_entities
 
-  root "login_signups#index"
+  root 'login_signups#index'
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   # Defines the root path route ("/")
