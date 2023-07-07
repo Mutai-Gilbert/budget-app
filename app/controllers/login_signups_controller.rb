@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class LoginSignupsController < ApplicationController
   before_action :set_login_signup, only: %i[show edit update destroy]
 
