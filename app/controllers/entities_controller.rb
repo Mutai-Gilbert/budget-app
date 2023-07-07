@@ -25,7 +25,6 @@ class EntitiesController < ApplicationController
         GroupEntity.create!(entity_id: @entity.id, group_id: params[:group_id])
         format.json { render :show, status: :created, location: @entity }
       else
-
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @entity.errors, status: :unprocessable_entity }
       end
@@ -48,7 +47,7 @@ class EntitiesController < ApplicationController
     @entity.destroy
 
     respond_to do |format|
-      format.html { redirect_to entity_url, notice: 'Entity was successfully desctroyed.' }
+      format.html { redirect_to entities_url, notice: 'Entity was successfully desctroyed.' }
       format.json { head :no_content }
     end
   end

@@ -17,6 +17,7 @@ class UsersController < ApplicationController
 
   def create
     @users = User.new(user_params)
+
     respond_to do |format|
       if @user.save
         format.html { redirect_to user_url(@user), notice: 'User was successfully created.' }
@@ -42,7 +43,6 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    @user = User.find(params[:id])
     @user.destroy
 
     respond_to do |format|

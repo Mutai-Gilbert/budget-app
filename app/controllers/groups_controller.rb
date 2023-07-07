@@ -2,12 +2,12 @@ class GroupsController < ApplicationController
     before_action :authenticate_user!
 
     def index
-        @group = Group.where(user_id: current_user.id)
+        @groups = Group.where(user_id: current_user.id)
     end
 
     def show
-        @group = Group.find(group.id)
-    end
+        @group = Group.find(params[:id])
+      end      
 
     def new
         @group = Group.new
@@ -21,7 +21,7 @@ class GroupsController < ApplicationController
 
         respond_to do |format|
             if @group.save
-                format.html { redirect_to group__path, notice: 'Group was successfully created.' }
+                format.html { redirect_to groups__path, notice: 'Group was successfully created.' }
                 format.json { render :show, status: :created, location: @group }
             else
                 format.html { render :new, status: :unprocessable_entity }
@@ -33,7 +33,7 @@ class GroupsController < ApplicationController
     def update
         respond_to do |format|
             if @group.update(group_params)
-                format.html { redirect_to group_path, notice: 'Group was successfully updated.' }
+                format.html { redirect_to groups_path, notice: 'Group was successfully updated.' }
                 format.json { render :show, status: :ok, location: @group }
             else
                 format.html { render :edit, status: :unprocessable_entity }

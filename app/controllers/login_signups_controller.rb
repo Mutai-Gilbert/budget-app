@@ -22,7 +22,7 @@ class LoginSignupsController < ApplicationController
 
     respond_to do |format|
       if @login_signup.save
-        format.html { redirect_to @login_signup, notice: 'Login signup was successfully created.' }
+        format.html { redirect_to login_signup_url(@login_signup), notice: 'Login signup was successfully created.' }
         format.json { render :show, status: :created, location: @login_signup }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -34,7 +34,7 @@ class LoginSignupsController < ApplicationController
   def update
     respond_to do |format|
       if @login_signup.update(login_signup_params)
-        format.html { redirect_to @login_signup, notice: 'Login signup was successfully updated.' }
+        format.html { redirect_to login_signup_url(@login_signup), notice: 'Login signup was successfully updated.' }
         format.json { render :show, status: :ok, location: @login_signup }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -45,6 +45,7 @@ class LoginSignupsController < ApplicationController
 
   def destroy
     @login_signup.destroy
+
     respond_to do |format|
       format.html { redirect_to login_signups_url, notice: 'Login signup was successfully destroyed.' }
       format.json { head :no_content }
@@ -58,6 +59,6 @@ class LoginSignupsController < ApplicationController
   end
 
   def login_signup_params
-    params.require(:login_signup).permit(:user_id, :group_id)
+    params.fetch(:login_signup, {})
   end
 end
