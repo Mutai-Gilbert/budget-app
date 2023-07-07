@@ -75,3 +75,5 @@ end
 gem 'devise'
 gem 'rubocop', '>= 1.0', '< 2.0'
 gem 'slim' # or gem 'haml' for Haml, or gem 'erb' for ERB
+gem 'cancancan'
+
