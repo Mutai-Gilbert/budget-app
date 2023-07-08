@@ -1,17 +1,18 @@
 # frozen_string_literal: true
 
+# Top-level documentation comment for the EntitiesController class
 class Ability
   include CanCan::Ability
 
   def initialize(user)
     # Define abilities for the user here. For example:
     #
-      return unless user.present?
+    return unless user.present?
 
-      can :manage, :all, user: current_user
-      return unless user.admin?
-      
-      can :manage, :all
+    can :manage, :all, user: current_user
+    return unless user.admin?
+
+    can :manage, :all
     #
     # The first argument to `can` is the action you are giving the user
     # permission to do.

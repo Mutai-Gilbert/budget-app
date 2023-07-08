@@ -1,7 +1,10 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe 'Groups', type: :request do
   include Devise::Test::IntegrationHelpers
+
   before :each do
     @user = User.create(name: 'Gilbert Mutai', email: 'mutai@gmail.com', password: 111_111)
     sign_in @user

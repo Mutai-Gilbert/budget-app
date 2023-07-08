@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# Top-level documentation comment for the EntitiesController class
 class EntitiesController < ApplicationController
   before_action :authenticate_user!
 
@@ -18,36 +19,18 @@ class EntitiesController < ApplicationController
 
   def create
     @entity = Entity.new(entity_params.merge(user: current_user))
-
-    respond_to do |format|
-      if @entity.save
-        format.html { redirect_to group_entities_path, notice: 'Entity was successfully created.' }
-        GroupEntity.create!(entity_id: @entity.id, group_id: params[:group_id])
-        format.json { render :show, status: :created, location: @entity }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @entity.errors, status: :unprocessable_entity }
-      end
-    end
+    respond_with_save(@entity, 'Entity', group_entities_path)
   end
 
   def update
-    respond_to do |format|
-      if @entity.update(entity_params)
-        format.html { redirect_to entity_url(@entity), notice: 'Entity was successfully updated.' }
-        format.json { render :show, status: ok, location: @entity }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @entity.errors, status: :unprocessable_entity }
-      end
-    end
+    respond_with_save(@entity, 'Entity', entity_url(@entity))
   end
 
   def destroy
     @entity.destroy
 
     respond_to do |format|
-      format.html { redirect_to entities_url, notice: 'Entity was successfully desctroyed.' }
+      format.html { redirect_to entities_url, notice: 'Entity was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -55,10 +38,23 @@ class EntitiesController < ApplicationController
   private
 
   def set_entity
-    @entity = Entity.find(paramsp[:id])
+    @entity = Entity.find(params[:id])
   end
 
   def entity_params
     params.permit(:name, :amount)
+  end
+
+  def respond_with_save(entity, entity_name, redirect_path)
+    respond_to do |format|
+      if entity.save
+        GroupEntity.create!(entity_id: entity.id, group_id: params[:group_id])
+        format.html { redirect_to redirect_path, notice: "#{entity_name} was successfully created." }
+        format.json { render :show, status: :created, location: entity }
+      else
+        format.html { render :new, status: :unprocessable_entity }
+        format.json { render json: entity.errors, status: :unprocessable_entity }
+      end
+    end
   end
 end

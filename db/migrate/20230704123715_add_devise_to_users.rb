@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# Top-level documentation comment for the EntitiesController class
 class AddDeviseToUsers < ActiveRecord::Migration[7.0]
   def self.up
     change_table :users do |t|

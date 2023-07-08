@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# Top-level documentation comment for the GroupsController class
 class GroupsController < ApplicationController
   before_action :authenticate_user!
 
@@ -22,13 +23,23 @@ class GroupsController < ApplicationController
 
     respond_to do |format|
       if @group.save
-        format.html { redirect_to groups_path, notice: 'Group was successfully created.' }
-        format.json { render :show, status: :created, location: @group }
+        handle_successful_group_creation(format)
       else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @group.errors, status: :unprocessable_entity }
+        handle_failed_group_creation(format)
       end
     end
+  end
+
+  private
+
+  def handle_successful_group_creation(format)
+    format.html { redirect_to groups_path, notice: 'Group was successfully created.' }
+    format.json { render :show, status: :created, location: @group }
+  end
+
+  def handle_failed_group_creation(format)
+    format.html { render :new, status: :unprocessable_entity }
+    format.json { render json: @group.errors, status: :unprocessable_entity }
   end
 
   def update
@@ -51,8 +62,6 @@ class GroupsController < ApplicationController
       format.json { head :no_content }
     end
   end
-
-  private
 
   def set_group
     @group = Group.find(params[:id])
