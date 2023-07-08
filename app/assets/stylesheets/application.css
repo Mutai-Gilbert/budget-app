@@ -84,7 +84,7 @@ body {
   gap: 1rem;
 }
 
-.login_signup_buttons > * {
+.login_signup_buttons>* {
   text-decoration: none;
   color: white;
   border-radius: 0.3rem;
@@ -93,7 +93,7 @@ body {
   font-weight: 600;
 }
 
-.login_signup_buttons > *:last-child {
+.login_signup_buttons>*:last-child {
   background-color: rgba(0, 0, 0, 0);
   color: black;
 }
@@ -287,49 +287,49 @@ input[type="submit"] {
 }
 
 .form-registration {
-    background-color: #f5f5f5;
-    border: 1px solid #ccc;
-    padding: 20px;
-    border-radius: 5px;
-    max-width: 400px;
-    margin: 0 auto;
-  }
+  background-color: #f5f5f5;
+  border: 1px solid #ccc;
+  padding: 20px;
+  border-radius: 5px;
+  max-width: 400px;
+  margin: 0 auto;
+}
 
-  .form-registration h2 {
-    text-align: center;
-    margin-bottom: 20px;
-  }
+.form-registration h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
 
-  .form-registration .field {
-    margin-bottom: 10px;
-  }
+.form-registration .field {
+  margin-bottom: 10px;
+}
 
-  .form-registration .actions {
-    text-align: center;
-  }
+.form-registration .actions {
+  text-align: center;
+}
 
-  .form-registration .actions input[type="submit"] {
-    background-color: #4caf50;
-    color: white;
-    border: none;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    border-radius: 5px;
-    cursor: pointer;
-  }
+.form-registration .actions input[type="submit"] {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+}
 
-  .form-registration .actions input[type="submit"]:hover {
-    background-color: #45a049;
-  }
+.form-registration .actions input[type="submit"]:hover {
+  background-color: #45a049;
+}
 
-  .form-registration h3 {
-    text-align: center;
-    margin-top: 20px;
-  }
+.form-registration h3 {
+  text-align: center;
+  margin-top: 20px;
+}
 
-  .form-registration .actions .cancel-account {
-    text-align: center;
-    margin-top: 10px;
-  }
+.form-registration .actions .cancel-account {
+  text-align: center;
+  margin-top: 10px;
+}
