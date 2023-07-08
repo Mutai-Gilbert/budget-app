@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 # Top-level documentation comment for the GroupEntitiesController class
 class GroupEntitiesController < ApplicationController
   before_action :authenticate_user!

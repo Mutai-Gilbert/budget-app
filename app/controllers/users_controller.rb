@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 # Top-level documentation comment for the EntitiesController class
 class UsersController < ApplicationController
   before_action :authenticate_user!

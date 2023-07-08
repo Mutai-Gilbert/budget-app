@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 # Top-level documentation comment for the EntitiesController class
 class LoginSignupsController < ApplicationController
   before_action :set_login_signup, only: %i[show edit update destroy]
