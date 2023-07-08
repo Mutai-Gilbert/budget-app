@@ -84,7 +84,7 @@ body {
   gap: 1rem;
 }
 
-.login_signup_buttons>* {
+.login_signup_buttons > * {
   text-decoration: none;
   color: white;
   border-radius: 0.3rem;
@@ -93,7 +93,7 @@ body {
   font-weight: 600;
 }
 
-.login_signup_buttons>*:last-child {
+.login_signup_buttons > *:last-child {
   background-color: rgba(0, 0, 0, 0);
   color: black;
 }
