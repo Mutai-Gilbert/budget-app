@@ -11,9 +11,9 @@
   </head>
 
   <body>
-  <header class="top-navigation">
-    <%= link_to '<', :back, class: 'back-button' %>
-  </header>
+  <header>
+  <a href="<%= root_path %>" class="back-button">&lt;</a>
+</header>
     <%= yield %>
   </body>
 </html>
